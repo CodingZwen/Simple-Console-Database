@@ -1,4 +1,3 @@
 # Databank
 
-Just a project to learn. Not finish yet.
-Databank
+Very Old Programm from the first Months of my Code learning. Keept because nostalgia.
