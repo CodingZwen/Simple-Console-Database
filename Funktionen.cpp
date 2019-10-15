@@ -11,29 +11,10 @@ void Funktionen::Auswahl(const int &auswahl,const int& n) const //n for show cur
 {
 	for (size_t i = 0; i < menuauswahl.size(); i++) {
 
-		if (auswahl == 0 && i == 0) {
+		if (auswahl == i) {
 			cout << ">" << menuauswahl.at(i) << "\n\n";
 
 		}
-		else if (auswahl == 1 && i == 1) {
-
-			cout << ">" << menuauswahl.at(i) << "\n\n";
-
-		}
-		else if (auswahl == 2 && i == 2) {
-			cout << ">" << menuauswahl.at(i) << "\n\n";
-
-		}
-		else if (auswahl == 3 && i == 3) {
-			cout << ">" << menuauswahl.at(i) << "\n\n";
-		}
-		else if (auswahl == 4 && i == 4) {
-			cout << ">" << menuauswahl.at(i) << "\n\n";
-		}
-		else if (auswahl == 5 && i == 5) {
-			cout << ">" << menuauswahl.at(i) << "\n\n";
-		}
-
 		else {
 			cout << menuauswahl.at(i) << "\n\n";
 		}
@@ -48,44 +29,44 @@ std::vector<string> Funktionen::Input(){
 
 	bool wiederholen = true;
 	string name;				//Variable for userinput
-	char bestätigung;			//save Y/N?
-	std::vector<string>rückgabe; //for data return
+	char bestÃ¤tigung;			//save Y/N?
+	std::vector<string>rÃ¼ckgabe; //for data return
 
 	while (wiederholen == true) {
 
 		cout << "Bitte gebe den Namen ein: \n";
 		cin >> name;
-		rückgabe.push_back(name);
+		rÃ¼ckgabe.push_back(name);
 		cout << "Bitte Telefonnummer eingeben: \n";
 		cin >> name;
-		rückgabe.push_back(name);
+		rÃ¼ckgabe.push_back(name);
 		cout << "Bitte Abteilung eingeben: \n";
 		cin >> name;
-		rückgabe.push_back(name);
+		rÃ¼ckgabe.push_back(name);
 		cout << "Bitte Alter eingeben: \n";
 		cin >> name;
-		rückgabe.push_back(name);
+		rÃ¼ckgabe.push_back(name);
 
 		cout << "Alle daten wurden eingegeben!\n";
 		system("pause");
 		system("cls");
 		cout << "Ihr eingegebenen Daten: \n\n";
 
-		for (size_t s = 0; s < rückgabe.size(); s++) {
-			cout << "Eingabe: " << rückgabe.at(s) << std::endl;
+		for (size_t s = 0; s < rÃ¼ckgabe.size(); s++) {
+			cout << "Eingabe: " << rÃ¼ckgabe.at(s) << std::endl;
 		}
 
-		cout << "\nDaten bestätigen? Y/N: ";
-		cin >> bestätigung;
-		switch (bestätigung) {
+		cout << "\nDaten bestÃ¤tigen? Y/N: ";
+		cin >> bestÃ¤tigung;
+		switch (bestÃ¤tigung) {
 
 		case  'y' : wiederholen = false; cout << "\nEingabe wird nun gespeichert.\nEs wird zum Hauptmenue zurueckgekehrt!\n"; system("pause"); system("cls"); break;
 		case  'Y': wiederholen = false;  cout << "Eingabe wird nun gespeichert.\nEs wird zum Hauptmenue zurueckgekehrt!\n"; system("pause"); system("cls"); break;
 
-		default: rückgabe.clear(); system("cls"); cout << "\nEingabe wird geloescht...Abfrage wird wiederholt!\n"; break;
+		default: rÃ¼ckgabe.clear(); system("cls"); cout << "\nEingabe wird geloescht...Abfrage wird wiederholt!\n"; break;
 		}
 	}
-	return rückgabe;
+	return rÃ¼ckgabe;
 }
 
 
@@ -125,13 +106,13 @@ void Funktionen::Hauptmenue(std::string& menueauswahl,int& n)const {
 	}
 }
 
-void Funktionen::AnzeigeMA(int &datensätze,  Personaldaten *mptr[] ) {
+void Funktionen::AnzeigeMA(int &datensÃ¤tze,  Personaldaten *mptr[] ) {
 
 	
 	system("cls");
 	
 	cout << " PERSONAL ID\tNAME\tABTEILUNG\n\n";
-	for (int i = 0; i < datensätze; i++) {
+	for (int i = 0; i < datensÃ¤tze; i++) {
 		if (mptr[i] != NULL) {
 			cout << i + 1 << ". " << mptr[i]->getid() << "\t\t" << mptr[i]->getname() << "\t" << mptr[i]->getAbteilung() << "\n\n";
 		}
@@ -139,22 +120,22 @@ void Funktionen::AnzeigeMA(int &datensätze,  Personaldaten *mptr[] ) {
 }
 
 
-int Funktionen::MAlöschen(std::string userinput, int &Datensätze, Personaldaten *mptr[]) {
+int Funktionen::MAlÃ¶schen(std::string userinput, int &DatensÃ¤tze, Personaldaten *mptr[]) {
 
-	for (int s = 0; s < Datensätze; s++) {
+	for (int s = 0; s < DatensÃ¤tze; s++) {
 
 		if (mptr[s]->getid() == userinput) {
 			cout << "\nMitarbeiter " << mptr[s]->getname() << " wurde erfolgreich gekuendigt :D !\n";
 			mptr[s] = NULL;
-			Datensätze--; 
+			DatensÃ¤tze--; 
 		}
 	}
 
-	return Datensätze;
+	return DatensÃ¤tze;
 }
 
 
-void Funktionen::MA_in_Datei(int &Datensätze, Personaldaten *mptr[]) { //ma speichern in asci datei
+void Funktionen::MA_in_Datei(int &DatensÃ¤tze, Personaldaten *mptr[]) { //ma speichern in asci datei
 	ofstream ziel;
 	
 	ziel.open("c:\\users\\sven\\desktop\\Datenbank.asc");
@@ -165,7 +146,7 @@ void Funktionen::MA_in_Datei(int &Datensätze, Personaldaten *mptr[]) { //ma spei
 	}
 	else {
 
-		for (int i = 0; i < Datensätze; i++) {
+		for (int i = 0; i < DatensÃ¤tze; i++) {
 			if (mptr != NULL) {
 				ziel << mptr[i]->getid() << " " << mptr[i]->getname() << " " << mptr[i]->getAbteilung()
 					<< " " << mptr[i]->getalter() << " #\n";
@@ -177,7 +158,7 @@ void Funktionen::MA_in_Datei(int &Datensätze, Personaldaten *mptr[]) { //ma spei
 }
 
 
-int Funktionen::Daten_Laden(int& Datensätze,Personaldaten *mptr[]) {
+int Funktionen::Daten_Laden(int& DatensÃ¤tze,Personaldaten *mptr[]) {
 	system("cls");
 	ifstream file("c://users//sven//desktop//Datenbank.asc");
 	
