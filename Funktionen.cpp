@@ -20,7 +20,7 @@ void Funktionen::Auswahl(const int &auswahl,const int& n) const //n for show cur
 		}
 	}
 
-	cout << "\n\nProduced by SuperhackerMega Zwen :D\n\nAngelegte Mitarbeiter: " << n;
+	cout << "\n\nProduced by Sven :\nAngelegte Mitarbeiter: " << n;
 }
 
 
